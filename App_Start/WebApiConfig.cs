@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-using System.Web.Http.Cors;
+﻿using System.Web.Http;
 
 namespace Challenge
 {
@@ -11,8 +7,8 @@ namespace Challenge
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            
+            //config.EnableCors();
             // Rutas de API web
             config.MapHttpAttributeRoutes();
 

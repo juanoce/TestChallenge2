@@ -27,11 +27,9 @@ function deleteRoom() {
         myData.Occupant = occupant;
         var env = JSON.stringify(myData);
 
-        var req = new XMLHttpRequest();
-        //req.setRequestHeader('Access-Control-Allow-Origin', '*');
-        req.open('POST', 'http://micajota.es/api/values/', true);
-        req.setRequestHeader('Content-Type', 'application/json');
-        req.setRequestHeader('Access-Control-Allow-Origin', '*');
+        var req = new XMLHttpRequest();        
+        req.open('POST', 'http://www.micajota.es/api/values/', true);
+        req.setRequestHeader('Content-Type', 'application/json');       
         req.onreadystatechange = function (aEvt) {
             if (req.readyState == 4) {
                 if (req.status == 200) {
@@ -57,9 +55,9 @@ function CreateRoom() {
     var env = JSON.stringify(myData);
 
     var req = new XMLHttpRequest();
-    //req.setRequestHeader('Access-Control-Allow-Origin', '*');
-    req.open('POST', 'http://micajota.es/api/values/', true);
-    req.setRequestHeader('Access-Control-Allow-Origin', '*');
+    
+    req.open('POST', 'http://www.micajota.es/api/values/', true);    
+    req.setRequestHeader('Content-Type', 'application/json');  
     req.onreadystatechange = function (aEvt) {
         if (req.readyState == 4) {
             if (req.status == 200) {
@@ -77,12 +75,11 @@ function eraseData() {
 
 }
    function getAlldata() {
-        var ed = $('#ddl1').val();
+       var ed = $('#ddl1').val();
        var req = new XMLHttpRequest();
         
-       req.open('GET', 'http://micajota.es/api/values/' + ed, true);      
-       req.setRequestHeader('Access-Control-Allow-Origin', '*');
-       req.setRequestHeader('Access-Control-Allow-Methods', 'GET,POST');
+       req.open('GET', 'http://www.micajota.es/api/values/' + ed, true);     
+       
         req.onreadystatechange = function (aEvt) {
             if (req.readyState == 4) {
                 if (req.status == 200) {
@@ -99,7 +96,7 @@ function eraseData() {
         var name = $('#tbname').val();
         var number = $('#tbnumber').val();
         var occupant = $('#tboccupant').val();      
-
+        
         var myData = {};
         myData.Id = id;
         myData.Name = name;
@@ -109,9 +106,8 @@ function eraseData() {
 
         var req = new XMLHttpRequest();    
         /*req.setRequestHeader('Access-Control-Allow-Origin', '*')*/;
-        req.open('POST', 'http://micajota.es/api/values/', true);
-        req.setRequestHeader('Content-Type', 'application/json');
-        req.setRequestHeader('Access-Control-Allow-Origin', '*');
+        req.open('POST', 'http://www.micajota.es/api/values/', true);
+        req.setRequestHeader('Content-Type', 'application/json');  
         req.onreadystatechange = function (aEvt) {
             if (req.readyState == 4) {
                 if (req.status == 200) {
