@@ -1,0 +1,22 @@
+﻿@model Challenge.Models.Room
+@{
+    /**/
+
+    ViewBag.Title = "Delete Room";
+}
+
+<h2 style="color:forestgreen">Room Booking Service - Delete Room</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="input-group input-group-md" style="padding-top:10px;width:100%">
+        <span class="input-group-addon" style="width:120px;min-width:120px;">Select Room to delete:</span>
+        @Html.DropDownListFor(x => Model.InRoom, new SelectList(Model.InRoom, "Value", "Text"),
+         htmlAttributes: new { @class = "form-control", id = "ddl1"  })
+    </div>
+    <br />
+    <button type="button" class="btn btn-primary" onclick="deleteRoom();">Delete Room</button>
+}

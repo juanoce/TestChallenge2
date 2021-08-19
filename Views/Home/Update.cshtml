@@ -1,0 +1,81 @@
+﻿
+@model Challenge.Models.Room
+@{
+
+    ViewBag.Title = "Update";
+}
+
+<h2 style="color:forestgreen">Room Booking Service - Update Room</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="input-group input-group-md" style="padding-top:10px;width:100%">
+        <span class="input-group-addon" style="width:120px;min-width:120px;">Select Room:</span>
+        @Html.DropDownListFor(x => Model.InRoom, new SelectList(Model.InRoom, "Value", "Text"),
+        htmlAttributes: new { @class = "form-control", id = "ddl1" ,onchange = "getAlldata();" })
+
+    </div>
+    <div class="input-group input-group-md" style="padding-top:10px;width:100%">
+        <span class="input-group-addon" style="width:120px;min-width:120px;">Id:</span>
+        @Html.EditorFor(model => model.Id, new
+   {
+       htmlAttributes = new
+       {
+           @class = "form-control",
+           @id = "tbid",
+           @style = "width:250px;color:black;",
+           @maxlength = "50",disabled= "disabled"
+       }
+   })
+    </div>
+    <div class="input-group input-group-md" style="padding-top:10px;width:100%">
+        <span class="input-group-addon" style="width:120px;min-width:120px;">Name:</span>
+        @Html.EditorFor(model => model.Name, new
+   {
+       htmlAttributes = new
+       {
+           @class = "form-control",
+           @id = "tbname",
+           @style = "width:250px;color:black;",
+           @maxlength = "50"
+       }
+   })
+    </div>
+
+    <div style="color:red">@Html.ValidationMessageFor(model => model.Name)</div>
+    <div class="input-group input-group-md" style="padding-top:10px;width:100%">
+        <span class="input-group-addon" style="width:120px;min-width:120px;">Number:</span>
+        @Html.EditorFor(model => model.Number, new
+   {
+       htmlAttributes = new
+       {
+           @class = "form-control",
+           @id = "tbnumber",
+           @style = "width:250px;color:black;",
+           @maxlength = "50"
+       }
+   })
+    </div>
+    <div style="color:red">@Html.ValidationMessageFor(model => model.Number)</div>
+    <div class="input-group input-group-md" style="padding-top:10px;width:100%">
+        <span class="input-group-addon" style="width:120px;min-width:120px;">Occupant:</span>
+        @Html.EditorFor(model => model.Occupant, new
+   {
+       htmlAttributes = new
+       {
+           @class = "form-control",
+           @id = "tboccupant",
+           @style = "width:250px;color:black;",
+           @maxlength = "50"
+       }
+   })
+    </div>
+    <div style="color:red">@Html.ValidationMessageFor(model => model.Occupant)</div>
+    <br />    
+    <button type="button" class="btn btn-primary" onclick="updateRoom();">Update Room</button> 
+    
+}
+

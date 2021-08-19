@@ -1,0 +1,40 @@
+﻿
+
+@model Challenge.Models.Rooms
+@{
+    ViewBag.Title = "Room List";
+}
+
+<h2 style="color:forestgreen">Room Booking Service-Room List</h2>
+<hr style="width:100%" />
+
+@if (Model.RoomList.Count > 0)
+{
+    <table  class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Number</th>
+                <th scope="col">Occupant</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var room in Model.RoomList)
+            {
+                <tr>
+                    <td>@room.Id</td>
+                    <td>@room.Name</td>
+                    <td>@room.Number</td>
+                    <td>@room.Occupant</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <p>The are no rooms occupied.</p>}
